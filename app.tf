@@ -1,4 +1,4 @@
-resource "digitalocean_app" "site-app" {
+resource "digitalocean_app" "site_app" {
   spec {
     name   = "${var.site_name}-app"
     region = var.region
