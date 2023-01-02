@@ -24,6 +24,8 @@ module "static_site" {
 ```
 See [variables.tf](variables.tf) for variable descriptions and examples.
 
+The app's default ingress URL can be found in the TF output `module.static_site.default_ingress`.
+
 Optionally, this module is able to automatically create Cloudflare DNS records pointing to your app. 
 
 To enable this, set the following variables in your `module` block.
