@@ -14,6 +14,7 @@ module "do_apps_tf" {
 	domain = "example.com"
 	source_repo = "github-user/github-repo"
 	source_branch = "main"
+	preview_source_branch = "dev"
 	source_dir = "hugo" # Directory within your repo that contains site source
 	output_dir = "public" # Directory your source is built to
 	build_command = "hugo -d public"
