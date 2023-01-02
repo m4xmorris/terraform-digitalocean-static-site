@@ -1,4 +1,4 @@
-# do-apps-tf
+# terraform-digitalocean-static-site
 
 [Terraform](https://www.terraform.io) module for deploying static sites on [DigitalOcean's App Platform](https://www.digitalocean.com/products/app-platform), with support for [Cloudflare](https://cloudflare.com) DNS.
 
@@ -6,7 +6,7 @@
 Create a `.tf` file inside your root module to call the module and set variables:
 ```
 module "static_site" {
-	source = "github.com/m4xmorris/do-apps-tf.git?ref=v1.0.0" # <-- Change this to the desired version
+	source = "github.com/m4xmorris/terraform-digitalocean-static-site.git?ref=v2.0.0" # <-- Change this to the desired version
 	site_name = ""
 	description = ""
 	environment = ""
