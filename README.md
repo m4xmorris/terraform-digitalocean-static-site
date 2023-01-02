@@ -6,7 +6,7 @@
 Create a `.tf` file inside your root module to call the module and setup variables:
 ```
 module "do_apps_tf" {
-	source = "github.com/maxmorrisio/do-apps-tf.git"
+	source = "github.com/maxmorrisio/do-apps-tf.git?ref=v1.0.0" # <-- Change this to the desired version
 	site_name = "name-of-site"
 	description = "Description of site"
 	environment = "x" # Must be Production/Development
