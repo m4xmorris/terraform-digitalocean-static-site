@@ -32,4 +32,3 @@ Optionally, this module is able to automatically create Cloudflare DNS records p
 To enable this, set the following variables in your `module` block.
 * manage_dns
 * cloudflare_zone_id
-* cloudflare_token (**Note - Your Cloudflare access token must provide edit permissions for the zone's DNS AND Page Rules.**)
