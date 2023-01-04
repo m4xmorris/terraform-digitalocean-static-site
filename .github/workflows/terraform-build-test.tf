@@ -30,5 +30,6 @@ module "terraform_digitalocean_static_site" {
   source_dir = "source"
   output_dir = "public"
   build_command = "bundle exec jekyll build -d ./public"
-  manage_dns = false
+  manage_dns = true
+  cloudflare_zone_id = "null"
 }
