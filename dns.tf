@@ -1,7 +1,6 @@
 module "site_dns" {
     source  = "m4xmorris/dns-record/cloudflare"
     version = "1.1.0"
-    count = var.manage_dns ? 1 : 0
     for_each = [
         var.domain,
         "www.${var.domain}"
