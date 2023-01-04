@@ -25,7 +25,9 @@ jobs:
       uses: hashicorp/setup-terraform@v2
 
     - name: Terraform Init
+      working-directory: ./.github/workflows/
       run: terraform init
 
     - name: Terraform Plan
-      run: terraform plan -var-file=./.github/workflows/terraform-build-test.tfvars
+      working-directory: ./.github/workflows/
+      run: terraform plan

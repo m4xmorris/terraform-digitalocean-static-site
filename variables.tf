@@ -1,9 +1,3 @@
-variable "do_token" {
-    type = string
-    description = "DigitalOcean API Token"
-    sensitive = true
-}
-
 variable "site_name" {
     type = string
     description = "Name of site"
@@ -71,13 +65,6 @@ variable "manage_dns" {
     type = bool
     description = "Should this module manage DNS via Cloudflare (true/false)"
     default = false
-}
-
-variable "cloudflare_token" {
-    type = string
-    description = "Cloudflare API Token"
-    default = "null"
-    sensitive = true
 }
 
 variable "cloudflare_zone_id" {
