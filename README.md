@@ -6,7 +6,8 @@
 Create a `.tf` file inside your root module to call the module and set variables:
 ```
 module "static_site" {
-	source = "github.com/m4xmorris/terraform-digitalocean-static-site.git?ref=v2.0.1" # <-- Change this to the desired version
+	source  = "m4xmorris/static-site/digitalocean"
+	version = "" # <-- It is recommended to lock at known working versions. Remove this for latest release.
 	site_name = ""
 	description = ""
 	environment = ""
