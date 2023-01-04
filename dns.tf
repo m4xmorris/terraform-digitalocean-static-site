@@ -1,7 +1,7 @@
 locals {
     dns_records = {
-        "www" = "${var.domain}"
-        "root" = "www.${var.domain}"
+        www = "${var.domain}"
+        root = "www.${var.domain}"
     }
 }
 
