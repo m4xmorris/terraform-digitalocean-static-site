@@ -9,7 +9,7 @@ module "site_dns" {
     source  = "m4xmorris/dns-record/cloudflare"
     version = "1.1.0"
     for_each = {
-        for k, v in locals.dns_records : k => v
+        for k, v in local.dns_records : k => v
         if var.manage_dns
     }
     cloudflare_zone_id = var.cloudflare_zone_id
