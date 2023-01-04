@@ -1,9 +1,11 @@
+# Test that Terraform code is able to build a plan with GitHub Actions
+# Version 1.0
 name: 'Terraform-Build-Test'
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
+   push:
+     branches: [ "main" ]
+   pull_request:
 
 permissions:
   contents: read
