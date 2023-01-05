@@ -1,30 +1,30 @@
 output "project_id" {
-    value = digitalocean_project.site_project.id
+    value = "${var.external_project == null ? digitalocean_project.site_project[0].id : null}"
     description = "ID of the project."
     depends_on = [digitalocean_project.site_project]
 }
 
 output "project_owner_uuid" {
-    value = digitalocean_project.site_project.owner_uuid
+    value = "${var.external_project == null ? digitalocean_project.site_project[0].owner_uuid : null}"
     description = "UUID of the project owner."
     depends_on = [digitalocean_project.site_project]
 }
 
 output "project_owner_id" {
-    value = digitalocean_project.site_project.owner_id
+    value = "${var.external_project == null ? digitalocean_project.site_project[0].owner_id : null}"
     description = "ID of the project owner."
     depends_on = [digitalocean_project.site_project]
   
 }
 
 output "project_creation" {
-    value = digitalocean_project.site_project.created_at
+    value = "${var.external_project == null ? digitalocean_project.site_project[0].created_at : null}"
     description = "Timestamp of project creation"
     depends_on = [digitalocean_project.site_project]
 }
 
 output "project_updated" {
-    value = digitalocean_project.site_project.updated_at
+    value = "${var.external_project == null ? digitalocean_project.site_project[0].updated_at : null}"
     description = "Timestamp of last project modification."
     depends_on = [digitalocean_project.site_project]
 }

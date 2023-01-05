@@ -1,19 +1,17 @@
-locals {
-    dns_records = {
-        www = "${var.domain}"
-        root = "www.${var.domain}"
-    }
+resource "cloudflare_record" "root_record" {
+  count = var.manage_dns ? 1 : 0
+  zone_id = var.cloudflare_zone_id
+  name    = var.domain
+  value   = replace(digitalocean_app.site_app.default_ingress,"/(https://)|(/)/","")
+  type    = "CNAME"
+  depends_on = [digitalocean_app.site_app]
 }
 
-module "site_dns" {
-    source  = "m4xmorris/dns-record/cloudflare"
-    version = "1.1.0"
-    for_each = {
-        for k, v in local.dns_records : k => v
-        if var.manage_dns
-    }
-    cloudflare_zone_id = var.cloudflare_zone_id
-    name = each.value
-    type = "CNAME"
-    value = replace(digitalocean_app.site_app.default_ingress,"/(https://)|(/)/","")
+resource "cloudflare_record" "www_record" {
+  count = var.manage_dns ? 1 : 0
+  zone_id = var.cloudflare_zone_id
+  name    = "www.${var.domain}"
+  value   = replace(digitalocean_app.site_app.default_ingress,"/(https://)|(/)/","")
+  type    = "CNAME"
+  depends_on = [digitalocean_app.site_app]
 }

@@ -61,6 +61,13 @@ variable "preview_source_branch" {
     description = "Branch of repo to use for development preview"
 }
 
+variable "external_project" {
+    type = string
+    description = "Set to the ID of an existing DigitalOcean project the site should be attached to (else one will be created)."
+    default = "null"
+  
+}
+
 variable "manage_dns" {
     type = bool
     description = "Should this module manage DNS via Cloudflare (true/false)"
