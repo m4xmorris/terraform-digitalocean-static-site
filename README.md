@@ -17,3 +17,6 @@ Optionally, this module is able to automatically create Cloudflare DNS records p
 To enable this, set the following variables in your `module` block.
 * `manage_dns = true`
 * `cloudflare_zone_id = "zone_id"`
+
+**Note - If you disable DNS management, you will still need to declare the `cloudflare` provider in your root module to satisfy dependencies.
+If you do not wish to provide an API key, you must set it to `nullnullnullnullnullnullnullnullnullnull`.**
