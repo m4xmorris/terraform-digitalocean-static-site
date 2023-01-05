@@ -71,7 +71,7 @@ variable "external_project" {
 variable "manage_dns" {
     type = bool
     description = "Should this module manage DNS via Cloudflare (true/false)"
-    default = false
+    default = true
 }
 
 variable "cloudflare_zone_id" {
