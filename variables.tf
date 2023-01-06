@@ -36,9 +36,12 @@ variable "source_repo" {
     description = "GitHub repo containing site source (example-user/example-repo)"
 }
 
-variable "source_branch" {
-    type = string
-    description = "Branch of repo to use"
+variable "source_branches" {
+    type = map(string)
+    description = "Map of URLs to deploy to and branches to deploy from (e.g. '/' = 'main')"
+    default = {
+      "/" = "main"
+    }
 }
 
 variable "source_dir" {
@@ -54,11 +57,6 @@ variable "output_dir" {
 variable "build_command" {
     type = string
     description = "Command to build site from source"
-}
-
-variable "preview_source_branch" {
-    type = string
-    description = "Branch of repo to use for development preview"
 }
 
 variable "external_project" {

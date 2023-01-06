@@ -25,8 +25,10 @@ module "terraform_digitalocean_static_site" {
   environment = "Development"
   domain = "example.com"
   source_repo = "example-user/example-repo"
-  source_branch = "main"
-  preview_source_branch = "dev"
+  source_branches = {
+    "/" = "main"
+    "/preview" = "dev"
+  }
   source_dir = "source"
   output_dir = "public"
   build_command = "bundle exec jekyll build -d ./public"
