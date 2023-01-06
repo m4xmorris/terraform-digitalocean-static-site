@@ -38,9 +38,9 @@ variable "source_repo" {
 
 variable "source_branches" {
     type = map(string)
-    description = "Map of URLs to deploy to and branches to deploy from (e.g. '/' = 'main')"
+    description = "Map of URLs to deploy to and branches to deploy from (e.g. 'main' = '/')"
     default = {
-      "/" = "main"
+      "main" = "/"
     }
 }
 
