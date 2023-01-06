@@ -9,35 +9,23 @@ resource "digitalocean_app" "site_app" {
     alert {rule = "DOMAIN_FAILED"}
     alert {rule = "DOMAIN_LIVE"}
 
-    static_site {
-      name          = var.site_name
-      source_dir    = var.source_dir
-      output_dir = var.output_dir
-      build_command = var.build_command
-
-      github {
-        repo = var.source_repo
-        branch = var.source_branch
-        deploy_on_push = true
+    dynamic "static_site" {
+      for_each = var.source_branches
+      content {
+        name = "${var.site_name}-${static_site.value}"
+        source_dir = var.source_dir
+        output_dir = var.output_dir
+        build_command = var.build_command
+        github {
+          repo = var.source_repo
+          branch = static_site.value
+          deploy_on_push = true
+        }
+        routes {
+          path = "${static_site.key}"
+        }
       }
-      routes {
-        path = "/"
-      }
-    }
-    static_site {
-      name          = "${var.site_name}-preview"
-      source_dir    = var.source_dir
-      output_dir = var.output_dir
-      build_command = var.build_command
-
-      github {
-        repo = var.source_repo
-        branch = var.preview_source_branch
-        deploy_on_push = true
-      }
-      routes {
-        path = "/preview"
-      }
+      
     }
   }
 }
