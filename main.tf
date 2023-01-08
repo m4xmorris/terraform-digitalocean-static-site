@@ -20,10 +20,12 @@ resource "digitalocean_app" "site_app" {
     region = var.region
     domain {name = var.domain}
 
-    alert {rule = "DEPLOYMENT_FAILED"}
-    alert {rule = "DEPLOYMENT_LIVE"}
-    alert {rule = "DOMAIN_FAILED"}
-    alert {rule = "DOMAIN_LIVE"}
+  dynamic "alert" {
+    for_each = var.alert_policy
+      content {
+        rule = alert.value
+      }
+  }
 
     dynamic "static_site" {
       for_each = var.source_branches
@@ -63,3 +65,4 @@ resource "cloudflare_record" "www_record" {
   type    = "CNAME"
   depends_on = [digitalocean_app.site_app]
 }
+

@@ -77,3 +77,13 @@ variable "cloudflare_zone_id" {
     description = "Zone ID of the Cloudflare domain to setup"
     default = "null"
 }
+
+variable "alert_policy" {
+    type = set(string)
+    description = "Map of alert policies to enable."
+    default = [
+        "DOMAIN_FAILED",
+        "DEPLOYMENT_FAILED"
+    ]
+  
+}
