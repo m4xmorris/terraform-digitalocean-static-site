@@ -80,7 +80,7 @@ variable "cloudflare_zone_id" {
 
 variable "alert_policy" {
   type        = set(string)
-  description = "Map of alert policies to enable."
+  description = "Map of alert policies to enable. - https://shorturl.at/GOTZ1"
   default = [
     "DOMAIN_FAILED",
     "DEPLOYMENT_FAILED"
