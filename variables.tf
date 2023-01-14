@@ -15,6 +15,7 @@ variable "region" {
 variable "description" {
   type        = string
   description = "Description of site (Shown in DO portal)"
+  default = "Managed by Terraform"
 }
 
 variable "environment" {
