@@ -10,19 +10,19 @@ variable "site_name" {
 variable "region" {
   type        = string
   description = "Region to deploy to - https://shorturl.at/htvyK"
-  default = "lon"
+  default     = "lon"
 }
 
 variable "description" {
   type        = string
   description = "Description of site (Shown in DO portal)"
-  default = "Managed by Terraform"
+  default     = "Managed by Terraform"
 }
 
 variable "environment" {
   type        = string
   description = " One of Production/Development/Staging (Shown in DO portal)"
-  default = "Development"
+  default     = "Development"
 }
 
 variable "domain" {
