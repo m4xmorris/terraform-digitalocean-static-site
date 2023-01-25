@@ -10,6 +10,8 @@ An example workspace can be found in this repo [build test](.github/workflows/te
 
 See [variables.tf](variables.tf) for variable descriptions and examples.
 
+See [DigitalOcean's documentation](https://docs.digitalocean.com/products/app-platform/reference/buildpacks/) for a list of supported languages and frameworks.
+
 The site's default ingress URL can be found in the module output `default_ingress`.
 
 Optionally, this module is able to automatically create Cloudflare DNS records pointing to your app. 
