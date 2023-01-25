@@ -10,6 +10,7 @@ variable "site_name" {
 variable "region" {
   type        = string
   description = "Region to deploy to - https://shorturl.at/htvyK"
+  default = "lon"
 }
 
 variable "description" {
@@ -21,6 +22,7 @@ variable "description" {
 variable "environment" {
   type        = string
   description = " One of Production/Development/Staging (Shown in DO portal)"
+  default = "Development"
 }
 
 variable "domain" {
