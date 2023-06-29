@@ -43,7 +43,15 @@ resource "digitalocean_app" "site_app" {
           path = static_site.value
         }
       }
-
+    }
+    dynamic "env" {
+      for_each = { for k, v in var.env_variables : k => v }
+      content {
+        key   = env.key
+        value = env.value
+        scope = "RUN_AND_BUILD_TIME"
+        type  = "GENERAL"
+      }
     }
   }
 }
@@ -65,4 +73,5 @@ resource "cloudflare_record" "www_record" {
   type       = "CNAME"
   depends_on = [digitalocean_app.site_app]
 }
+
 

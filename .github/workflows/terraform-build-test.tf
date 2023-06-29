@@ -29,6 +29,9 @@ module "terraform_digitalocean_static_site" {
     "/"        = "main"
     "/preview" = "dev"
   }
+  env_variables = {
+    "HUGO_VERSION" = "0.110.0"
+  }
   source_dir         = "source"
   output_dir         = "public"
   build_command      = "bundle exec jekyll build -d ./public"

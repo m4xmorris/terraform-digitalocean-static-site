@@ -47,6 +47,12 @@ variable "source_branches" {
   }
 }
 
+variable "env_variables" {
+  type        = map(string)
+  description = "Map of app-wide environment variables to set"
+  default     = {}
+}
+
 variable "source_dir" {
   type        = string
   description = "Directory within repo containg site source"
@@ -90,3 +96,4 @@ variable "alert_policy" {
   ]
 
 }
+
