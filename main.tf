@@ -47,7 +47,7 @@ resource "digitalocean_app" "site_app" {
     dynamic "env" {
       for_each = { for k, v in var.env_variables : k => v }
       content {
-        key = env.key
+        key   = env.key
         value = env.value
         scope = "RUN_AND_BUILD_TIME"
         type  = "GENERAL"
