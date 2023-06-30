@@ -42,6 +42,9 @@ resource "digitalocean_app" "site_app" {
         routes {
           path = static_site.value
         }
+        index_document    = var.index_document
+        error_document    = var.error_document
+        catchall_document = var.notfound_document
       }
     }
     dynamic "env" {

@@ -68,6 +68,24 @@ variable "build_command" {
   description = "Command to build site from source"
 }
 
+variable "index_document" {
+  type        = string
+  description = "Default document to serve when no path is specified"
+  default     = "index.html"
+}
+
+variable "error_document" {
+  type        = string
+  description = "Document to when App Platform/site errors"
+  default     = "error.html"
+}
+
+variable "notfound_document" {
+  type        = string
+  description = "Document to serve when a request is not found"
+  default     = "404.html"
+}
+
 variable "external_project" {
   type        = string
   description = "Set to the ID of an existing DigitalOcean project the site should be attached to (else one will be created)."
