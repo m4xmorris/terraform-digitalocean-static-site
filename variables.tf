@@ -69,21 +69,21 @@ variable "build_command" {
 }
 
 variable "index_document" {
-  type = string
+  type        = string
   description = "Default document to serve when no path is specified"
-  default = "index.html"
+  default     = "index.html"
 }
 
 variable "error_document" {
-  type = string
+  type        = string
   description = "Document to when App Platform/site errors"
-  default = "error.html"
+  default     = "error.html"
 }
 
 variable "notfound_document" {
-  type = string
+  type        = string
   description = "Document to serve when a request is not found"
-  default = "404.html"
+  default     = "404.html"
 }
 
 variable "external_project" {
