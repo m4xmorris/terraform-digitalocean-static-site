@@ -74,12 +74,6 @@ variable "index_document" {
   default     = "index.html"
 }
 
-variable "error_document" {
-  type        = string
-  description = "Document to when App Platform/site errors"
-  default     = "error.html"
-}
-
 variable "notfound_document" {
   type        = string
   description = "Document to serve when a request is not found"
