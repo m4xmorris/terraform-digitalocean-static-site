@@ -27,6 +27,23 @@ resource "digitalocean_app" "site_app" {
       }
     }
 
+    ingress {
+      dynamic "rule" {
+        for_each = var.source_branches
+        content {
+          component {
+            name = "${var.site_name}-${rule.key}"
+          }
+          match {
+            path {
+              prefix = rule.value
+            }
+          }
+        }
+
+      }
+    }
+
     dynamic "static_site" {
       for_each = var.source_branches
       content {
@@ -38,9 +55,6 @@ resource "digitalocean_app" "site_app" {
           repo           = var.source_repo
           branch         = static_site.key
           deploy_on_push = true
-        }
-        routes {
-          path = static_site.value
         }
         index_document    = var.index_document
         catchall_document = var.notfound_document

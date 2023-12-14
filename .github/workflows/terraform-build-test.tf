@@ -26,8 +26,8 @@ module "terraform_digitalocean_static_site" {
   domain      = "example.com"
   source_repo = "example-user/example-repo"
   source_branches = {
-    "/"        = "main"
-    "/preview" = "dev"
+    "main" = "/"
+    "dev"  = "/preview"
   }
   env_variables = {
     "HUGO_VERSION" = "0.110.0"
