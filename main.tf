@@ -32,7 +32,7 @@ resource "digitalocean_app" "site_app" {
         for_each = var.source_branches
         content {
           component {
-            name = "${var.site_name}-${rule.key}"
+            name                 = "${var.site_name}-${rule.key}"
             preserve_path_prefix = true
           }
           match {
