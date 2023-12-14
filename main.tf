@@ -33,6 +33,7 @@ resource "digitalocean_app" "site_app" {
         content {
           component {
             name = "${var.site_name}-${rule.key}"
+            preserve_path_prefix = true
           }
           match {
             path {
